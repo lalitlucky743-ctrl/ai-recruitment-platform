@@ -1,7 +1,9 @@
 {
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "installCommand": "npm install --prefix frontend",
   "builds": [
     {
-      "src": "frontend/package.json",
+      "src": "frontend/**",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "frontend/dist",
