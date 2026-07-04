@@ -1,13 +1,17 @@
 {
-  "buildCommand": "cd frontend && npm install && npm run build",
-  "installCommand": "npm install --prefix frontend",
-  "outputDirectory": "frontend/dist",
-  "functions": {
-    "backend/app/main.py": {
-      "runtime": "python3.9",
-      "maxDuration": 10
+  "builds": [
+    {
+      "src": "frontend/**",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "frontend/dist"
+      }
+    },
+    {
+      "src": "backend/app/main.py",
+      "use": "@vercel/python"
     }
-  },
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
