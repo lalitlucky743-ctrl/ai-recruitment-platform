@@ -29,7 +29,8 @@ const MockInterview = ({ theme }) => {
   const audioRef = useRef(null);
 
   // API URL
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+  const API_URL = import.meta.env.VITE_API_URL || 
+   (import.meta.env.PROD ? '' :"http://localhost:8000");
 
   // Start Recording
   const startRecording = async () => {
